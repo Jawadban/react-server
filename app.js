@@ -1,16 +1,16 @@
 const express = require('express')
-import {MongoClient} from 'mongodb'
-import assert from 'asser'
-import config from '../config'
+// import {MongoClient} from 'mongodb'
+// import assert from 'asser'
+// import config from '../config'
 
-let mdb;
+// let mdb;
 
-MongoClient.connect(config.mongodbUri, (err, db) => {
-	assert.equal(null, err);
+// MongoClient.connect(config.mongodbUri, (err, db) => {
+// 	assert.equal(null, err);
 
 	
-	mdb = db;
-})
+// 	mdb = db;
+// })
 const app = express()
 
 app.use('/static', express.static(__dirname + '/public'))
