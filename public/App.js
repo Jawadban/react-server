@@ -1,41 +1,47 @@
 
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { CounterActions } from './actions'
+import { CounterActions, decrementAction } from './actions'
 
 class App extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+  constructor(props) {
+    super(props);
+  }
 
-    click() {
-        this.props.testClick();
-    }
+  increaseHandler() {
+    this.props.incrament()
+  }
 
-    render() {
-        return (
-            <div>
-                <h1>Hello Redux</h1>
-                <h2>Counter: {this.props.global.counter}</h2>
-                <button onClick={this.click.bind(this)}>Click Me</button>
-            </div>
-        )
-    }
+  decreaseHandler() {
+  	this.props.decrament()
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>Hello Redux</h1>
+        <h2>Counter: {this.props.global.counter}</h2>
+        <button onClick={this.increaseHandler.bind(this)}>Increase</button>
+        <button onClick={this.decreaseHandler.bind(this)}>Decrease</button>
+      </div>
+      )
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return {
-        testClick: () => dispatch(CounterActions("Add"))
-    }
+  return {
+    incrament: () => dispatch(CounterActions("Add")),
+    decrament: () => dispatch(decrementAction('Subtract'))
+  }
 }
 
 const mapStateToProps = (state) => {
-    return state;
+  return state;
 }
 
 const DefaultApp = connect(
-    mapStateToProps,
-    mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(App)
 
 export default DefaultApp;

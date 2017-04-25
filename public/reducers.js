@@ -10,6 +10,8 @@ function counterReducer(state, action) {
 	switch (action.type) {
 		case 'Add':
 			return Object.assign( {}, state, { counter: state.counter + 1 })
+		case 'Subtract':
+			return Object.assign( {}, state, { counter:state.counter - 1 })
 		default: 
 			return state
 	}
