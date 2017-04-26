@@ -80,7 +80,7 @@
 
 	var _NameComponent2 = _interopRequireDefault(_NameComponent);
 
-	var _AddingNameComponent = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./AddingNameComponent\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var _AddingNameComponent = __webpack_require__(286);
 
 	var _AddingNameComponent2 = _interopRequireDefault(_AddingNameComponent);
 
@@ -21927,10 +21927,10 @@
 	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 	  return {
 	    incrament: function incrament() {
-	      return dispatch((0, _actions.CounterActions)("Add"));
+	      return dispatch((0, _actions.CounterActions)());
 	    },
 	    decrament: function decrament() {
-	      return dispatch((0, _actions.decrementAction)('Subtract'));
+	      return dispatch((0, _actions.decrementAction)());
 	    }
 	  };
 	};
@@ -23847,7 +23847,7 @@
 				return Object.assign({}, state, { counter: state.counter + 1 });
 			case 'Subtract':
 				return Object.assign({}, state, { counter: state.counter - 1 });
-			case 'AddName':
+			case 'addName':
 				return Object.assign({}, state, { name: action.text });
 			default:
 				return state;
@@ -29934,6 +29934,79 @@
 	var NameComponent = (0, _reactRedux.connect)(mapStateToProps)(NameDisplay);
 
 	exports.default = NameComponent;
+
+/***/ }),
+/* 286 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(183);
+
+	var _actions = __webpack_require__(215);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var AddNameComponent = function (_React$Component) {
+		_inherits(AddNameComponent, _React$Component);
+
+		function AddNameComponent(props) {
+			_classCallCheck(this, AddNameComponent);
+
+			return _possibleConstructorReturn(this, (AddNameComponent.__proto__ || Object.getPrototypeOf(AddNameComponent)).call(this, props));
+		}
+
+		_createClass(AddNameComponent, [{
+			key: 'nameHandler',
+			value: function nameHandler(event) {
+				this.props.addName(event.target.value);
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
+					'div',
+					null,
+					_react2.default.createElement(
+						'h1',
+						null,
+						' Han '
+					),
+					_react2.default.createElement('input', { type: 'text', onChange: this.nameHandler.bind(this) })
+				);
+			}
+		}]);
+
+		return AddNameComponent;
+	}(_react2.default.Component);
+
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+		return {
+			addName: function addName(text) {
+				return dispatch((0, _actions.nameAction)(text));
+			}
+		};
+	};
+
+	var AddName = (0, _reactRedux.connect)(mapDispatchToProps)(AddNameComponent);
+
+	exports.default = AddName;
 
 /***/ })
 /******/ ]);

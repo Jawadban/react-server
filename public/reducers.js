@@ -13,7 +13,7 @@ function counterReducer(state, action) {
 			return Object.assign( {}, state, { counter: state.counter + 1 })
 		case 'Subtract':
 			return Object.assign( {}, state, { counter: state.counter - 1 })
-		case 'AddName':
+		case 'addName':
 			return Object.assign( {}, state, { name: action.text })
 		default: 
 			return state

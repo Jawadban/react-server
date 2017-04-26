@@ -1,4 +1,3 @@
-
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { CounterActions, decrementAction } from './actions'
@@ -30,8 +29,8 @@ class App extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    incrament: () => dispatch(CounterActions("Add")),
-    decrament: () => dispatch(decrementAction('Subtract'))
+    incrament: () => dispatch(CounterActions()),
+    decrament: () => dispatch(decrementAction())
   }
 }
 
@@ -45,4 +44,5 @@ const DefaultApp = connect(
 )(App)
 
 export default DefaultApp;
+
 
