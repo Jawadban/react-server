@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} form 'redux'
 import {nameAction} from './actions'
 
-class AddName extends React.Component {
+class AddNameComponent extends React.Component {
 	constructor(props) {
 		super(props)
 	}
@@ -22,4 +22,6 @@ const mapDispatchToProps = (dispatch) => {
 	return dispatch
 }
 
-export default AddName;
+const AddName = connect(mapDispatchToProps)(AddNameComponent)
+
+export default AddName

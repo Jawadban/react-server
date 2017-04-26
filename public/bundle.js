@@ -80,6 +80,10 @@
 
 	var _NameComponent2 = _interopRequireDefault(_NameComponent);
 
+	var _AddingNameComponent = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./AddingNameComponent\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+	var _AddingNameComponent2 = _interopRequireDefault(_AddingNameComponent);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	// let store = createStore(
@@ -107,7 +111,8 @@
 	      { path: '/', component: _MainComponent2.default },
 	      _react2.default.createElement(_reactRouter.IndexRoute, { component: _App2.default }),
 	      _react2.default.createElement(_reactRouter.Route, { path: 'test', component: _AnotherComponent2.default }),
-	      _react2.default.createElement(_reactRouter.Route, { path: 'name', component: _NameComponent2.default })
+	      _react2.default.createElement(_reactRouter.Route, { path: 'name', component: _NameComponent2.default }),
+	      _react2.default.createElement(_reactRouter.Route, { path: 'addName', component: _AddingNameComponent2.default })
 	    )
 	  )
 	), document.getElementById("app"));

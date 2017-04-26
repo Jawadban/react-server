@@ -9,7 +9,7 @@ import AnotherComponent from './AnotherComponent'
 import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 import NameComponent from './NameComponent'
-
+import AddingName from './AddingNameComponent'
 // let store = createStore(
 // 	combineReducers ({
 // 		global: counterReducer,
@@ -33,6 +33,7 @@ render(
         <IndexRoute component={App} />
         <Route path="test" component={AnotherComponent} />
         <Route path="name" component={NameComponent} />
+        <Route path='addName' component={AddingName} />
       </Route>
     </Router>
   </Provider>,
