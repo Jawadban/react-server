@@ -19,7 +19,9 @@ class AddNameComponent extends React.Component {
 }
 
 const mapDispatchToProps = (dispatch) => {
-	return {}
+	return {
+		
+	}
 }
 
 const AddName = connect(mapDispatchToProps)(AddNameComponent)
