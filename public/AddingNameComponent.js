@@ -6,8 +6,9 @@ class AddName extends React.Component {
 	constructor(props) {
 		super(props)
 	}
+
 	nameHandler(event) {
-		
+
 	}
 
 	render() {
@@ -15,6 +16,10 @@ class AddName extends React.Component {
 			<Input onChange={this.nameHandler.bind(this)} />
 		)
 	}
+}
+
+const mapDispatchToProps = (dispatch) => {
+	return dispatch
 }
 
 export default AddName;
