@@ -1,5 +1,6 @@
 const initialState = {
-	counter: 0
+	counter: 0,
+	name: 'Jawad'
 }
 
 function counterReducer(state, action) {
@@ -11,7 +12,9 @@ function counterReducer(state, action) {
 		case 'Add':
 			return Object.assign( {}, state, { counter: state.counter + 1 })
 		case 'Subtract':
-			return Object.assign( {}, state, { counter:state.counter - 1 })
+			return Object.assign( {}, state, { counter: state.counter - 1 })
+		case 'AddName':
+			return Object.assign( {}, state, { name: action.text })
 		default: 
 			return state
 	}

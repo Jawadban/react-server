@@ -16,3 +16,5 @@ class AnotherComponent extends React.Component {
 
 
 export default AnotherComponent;
+
+// {this.props.global.name}

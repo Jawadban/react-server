@@ -8,6 +8,7 @@ import MainComponent from './MainComponent'
 import AnotherComponent from './AnotherComponent'
 import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
+import NameComponent from './NameComponent'
 
 // let store = createStore(
 // 	combineReducers ({
@@ -31,6 +32,7 @@ render(
 			<Route path="/" component={MainComponent}>
         <IndexRoute component={App} />
         <Route path="test" component={AnotherComponent} />
+        <Route path="name" component={NameComponent} />
       </Route>
     </Router>
   </Provider>,

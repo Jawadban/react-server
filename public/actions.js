@@ -9,3 +9,7 @@ export function CounterActions() 	{
 export function decrementAction() {
 	return {type:'Subtract'}
 }
+
+export function nameAction(text) {
+	return {type: 'addName', text }
+}
