@@ -29963,58 +29963,19 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	// class AddNameComp extends React.Component {
-	// 	constructor(props) {
-	// 		super(props)
-	// 	}
+	var AddNameComp = function (_React$Component) {
+		_inherits(AddNameComp, _React$Component);
 
-	// 	textHanler(event) {
-	// 		this.props.addTheName(event.target.value)
-	// 	}
+		function AddNameComp(props) {
+			_classCallCheck(this, AddNameComp);
 
-	// 	render() {
-	// 		return (
-	// 		<div>
-	// 			<h1>{this.props.global.name}</h1>
-	// 			<textarea type='text' onChange={this.textHanler.bind(this)} />
-	// 		</div>
-	// 		)
-	// 	}
-	// }
-
-	// const mapStateToProps = (state) => state
-	// const mapDispatchToProps = (dispatch) => {
-	// 	return {
-	// 		addTheName: (text) => dispatch(nameAction(text))
-	// 	}
-	// }
-
-	// const DefaultApp = connect(
-	// 	mapStateToProps,
-	// 	mapDispatchToProps
-	// )(AddNameComp)
-
-	// export default DefaultApp;
-
-
-	var AddNameComponent = function (_React$Component) {
-		_inherits(AddNameComponent, _React$Component);
-
-		function AddNameComponent(props) {
-			_classCallCheck(this, AddNameComponent);
-
-			return _possibleConstructorReturn(this, (AddNameComponent.__proto__ || Object.getPrototypeOf(AddNameComponent)).call(this, props));
+			return _possibleConstructorReturn(this, (AddNameComp.__proto__ || Object.getPrototypeOf(AddNameComp)).call(this, props));
 		}
 
-		_createClass(AddNameComponent, [{
-			key: 'increaseHandler',
-			value: function increaseHandler() {
-				this.props.incrament();
-			}
-		}, {
-			key: 'nameHandler',
-			value: function nameHandler(event) {
-				this.props.addName(event.target.value);
+		_createClass(AddNameComp, [{
+			key: 'textHanler',
+			value: function textHanler(event) {
+				this.props.addTheName(event.target.value);
 			}
 		}, {
 			key: 'render',
@@ -30025,54 +29986,30 @@
 					_react2.default.createElement(
 						'h1',
 						null,
-						' Han '
-					),
-					_react2.default.createElement(
-						'h1',
-						null,
-						' ',
 						this.props.global.name
 					),
-					_react2.default.createElement(
-						'button',
-						{ onClick: this.increaseHandler.bind(this) },
-						'Increase'
-					),
-					_react2.default.createElement('input', { type: 'text', onChange: this.nameHandler.bind(this) })
+					_react2.default.createElement('textarea', { type: 'text', onChange: this.textHanler.bind(this) })
 				);
 			}
 		}]);
 
-		return AddNameComponent;
+		return AddNameComp;
 	}(_react2.default.Component);
 
+	var mapStateToProps = function mapStateToProps(state) {
+		return state;
+	};
 	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 		return {
-			incrament: function incrament() {
-				return dispatch((0, _actions.CounterActions)());
-			},
-			addName: function addName(text) {
+			addTheName: function addTheName(text) {
 				return dispatch((0, _actions.nameAction)(text));
 			}
 		};
 	};
 
-	// const mapDispatchToProps = (dispatch) => {
-	//   return {
-	//     addName: (text) => dispatch(nameAction(text)),
-	//     incrament: () => dispatch(CounterActions()),
-	//   }
-	// }
+	var DefaultApp = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(AddNameComp);
 
-	var mapStateToProps = function mapStateToProps(state) {
-		return state;
-	};
-
-	var AddName = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(AddNameComponent);
-
-	// connect(mapDispatchToProps)(AddNameComponent)
-
-	exports.default = AddName;
+	exports.default = DefaultApp;
 
 /***/ })
 /******/ ]);
