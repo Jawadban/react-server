@@ -19,9 +19,14 @@ app.set('views', __dirname +'/views')
 
 app.set('view engine', 'pug')
 
+app.get('/obj', function(req, res){
+	res.send({name: 'Jaw'})
+})
+
 app.get('*', function(req, res){
 	res.render('index')
 })
+
 
 app.listen(process.env.PORT || 3000, function(){
 	console.log('listening to port 3000')

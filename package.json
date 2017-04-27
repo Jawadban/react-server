@@ -5,11 +5,13 @@
   "main": "index.js",
   "scripts": {
     "webpack": "webpack",
+    "start": "webpack -w & nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Jawad Bangash",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.16.1",
     "babel-cli": "^6.16.0",
     "babel-core": "^6.17.0",
     "babel-loader": "^6.2.5",
@@ -25,5 +27,8 @@
     "react-router-redux": "^4.0.6",
     "redux": "^3.6.0",
     "webpack": "^1.13.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
   }
 }

@@ -2,6 +2,9 @@ import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { CounterActions, decrementAction } from './actions'
 import {nameAction} from './actions'
+import {Router, Route, Link, RouteHandler} from 'react-router';
+import AnotherComponent from './AnotherComponent'
+
 
 
 class AddNameComp extends React.Component {
@@ -18,6 +21,7 @@ class AddNameComp extends React.Component {
 		<div>
 			<h1>{this.props.global.name}</h1>
 			<textarea type='text' onChange={this.textHanler.bind(this)} />
+			<Link to="/test" ><button>Clickme</button></Link>
 		</div>
 		)
 	}
@@ -30,10 +34,10 @@ const mapDispatchToProps = (dispatch) => {
 	}
 }
 
-const DefaultApp = connect(
+const AddName = connect(
 	mapStateToProps,
 	mapDispatchToProps
 )(AddNameComp)
 
-export default DefaultApp;
+export default AddName;
 
