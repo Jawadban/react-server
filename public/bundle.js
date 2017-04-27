@@ -29963,19 +29963,70 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var AddNameComponent = function (_React$Component) {
-		_inherits(AddNameComponent, _React$Component);
+	// class App extends React.Component {
+	//   constructor(props) {
+	//     super(props);
+	//   }
 
-		function AddNameComponent(props) {
-			_classCallCheck(this, AddNameComponent);
+	//   increaseHandler() {
+	//     this.props.incrament()
+	//   }
 
-			return _possibleConstructorReturn(this, (AddNameComponent.__proto__ || Object.getPrototypeOf(AddNameComponent)).call(this, props));
+	//   decreaseHandler() {
+	//   	this.props.decrament()
+	//   }
+
+	//   nameHandler(event) {
+	// 		this.props.addName(event.target.value)
+	// 	}
+
+	//   render() {
+	//     return (
+	//       <div>
+	//         <h1>Hello Redux</h1>
+	//         <h2>Counter: {this.props.global.counter}</h2>
+	//         <button onClick={this.increaseHandler.bind(this)}>Increase</button>
+	//         <button onClick={this.decreaseHandler.bind(this)}>Decrease</button>
+	//         <input type="text" onChange={this.nameHandler.bind(this)} />
+	//         <h1>{this.props.global.name}</h1>
+	//       </div>
+	//       )
+	//   }
+	// }
+
+	// const mapDispatchToProps = (dispatch) => {
+	//   return {
+	//     incrament: () => dispatch(CounterActions()),
+	//     decrament: () => dispatch(decrementAction()),
+	//     addName: (text) => dispatch(nameAction(text))
+	//   }
+	// }
+
+	// const mapStateToProps = (state) => {
+	//   return state;
+	// }
+
+	// const DefaultApp = connect(
+	//   mapStateToProps,
+	//   mapDispatchToProps
+	// )(App)
+
+	// export default DefaultApp;
+
+
+	var AddNameComp = function (_React$Component) {
+		_inherits(AddNameComp, _React$Component);
+
+		function AddNameComp(props) {
+			_classCallCheck(this, AddNameComp);
+
+			return _possibleConstructorReturn(this, (AddNameComp.__proto__ || Object.getPrototypeOf(AddNameComp)).call(this, props));
 		}
 
-		_createClass(AddNameComponent, [{
-			key: 'nameHandler',
-			value: function nameHandler(event) {
-				this.props.addName(event.target.value);
+		_createClass(AddNameComp, [{
+			key: 'textHanler',
+			value: function textHanler(event) {
+				this.props.addTheName(event.target.value);
 			}
 		}, {
 			key: 'render',
@@ -29986,27 +30037,81 @@
 					_react2.default.createElement(
 						'h1',
 						null,
-						' Han '
+						this.props.global.name
 					),
-					_react2.default.createElement('input', { type: 'text', onChange: this.nameHandler.bind(this) })
+					_react2.default.createElement('textarea', { type: 'text', onChange: this.textHanler.bind(this) })
 				);
 			}
 		}]);
 
-		return AddNameComponent;
+		return AddNameComp;
 	}(_react2.default.Component);
 
+	var mapStateToProps = function mapStateToProps(state) {
+		return state;
+	};
 	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 		return {
-			addName: function addName(text) {
+			addTheName: function addTheName(text) {
 				return dispatch((0, _actions.nameAction)(text));
 			}
 		};
 	};
 
-	var AddName = (0, _reactRedux.connect)(mapDispatchToProps)(AddNameComponent);
+	var DefaultApp = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(AddNameComp);
 
-	exports.default = AddName;
+	exports.default = DefaultApp;
+
+	// class AddNameComponent extends React.Component {
+	// 	constructor(props) {
+	// 		super(props)
+	// 	}
+
+	// 	  increaseHandler() {
+	//     this.props.incrament()
+	//   }
+
+	// 	nameHandler(event) {
+	// 		this.props.addName(event.target.value)
+	// 	}
+
+	// 	render() {
+	// 		return (
+	// 			<div>
+	// 				<h1> Han </h1>
+	// 				        <button onClick={this.increaseHandler.bind(this)}>Increase</button>
+	// 				<input type="text" onChange={this.nameHandler.bind(this)} />
+	// 			</div>
+	// 		)
+	// 	}
+	// }
+
+	// const mapDispatchToProps = (dispatch) => {
+	//   return {
+	//     incrament: () => dispatch(CounterActions()),
+	//     addName: (text) => dispatch(nameAction(text)),
+	//   }
+	// }
+
+	// // const mapDispatchToProps = (dispatch) => {
+	// //   return {
+	// //     addName: (text) => dispatch(nameAction(text)),
+	// //     incrament: () => dispatch(CounterActions()),
+	// //   }
+	// // }
+
+	// const mapStateToProps = connect(
+	// 	return state
+	// )
+
+	// const AddName = connect(
+	//   mapStateToProps,
+	//   mapDispatchToProps
+	// )(AddNameComponent)
+
+	// // connect(mapDispatchToProps)(AddNameComponent)
+
+	// export default AddName
 
 /***/ })
 /******/ ]);
